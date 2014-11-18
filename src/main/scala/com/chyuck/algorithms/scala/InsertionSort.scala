@@ -2,30 +2,20 @@ package com.chyuck.algorithms.scala
 
 object InsertionSort {
 
-  /**
-   * Inserts i to sortedList and returns sorted list
-   * Example: insert(7, List(3,3,4,5,8,11)) == List(3,3,4,5,7,8,11)
-   */
-  def insert(i: Int, sortedList: List[Int]) : List[Int] = {
-    sortedList match {
-      case Nil => List(i)
-      case x :: xs if x >= i => i :: x :: xs
-      case x :: xs  => x :: insert(i, xs)
-    }
-  }
+  def sort(array: Array[Int]) : Array[Int] = {
 
-  def sort(list: List[Int]) : List[Int] = {
+    for (i <- 1 until array.length) {
 
-    def sortSubList(sortedList: List[Int], unsortedList: List[Int]) : List[Int] = {
-      require(sortedList.length + unsortedList.length == list.length)
+      val currentElement = array(i)
+      var j = i - 1
 
-      unsortedList match {
-        case Nil => sortedList
-        case x :: xs => sortSubList(insert(x, sortedList), xs)
+      while (j >= 0 && array(j) > currentElement) {
+        array(j + 1) = array(j)
+        j = j - 1
       }
+      array(j + 1) = currentElement
     }
 
-    sortSubList(List(), list)
+    array
   }
-
 }

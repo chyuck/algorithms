@@ -26,4 +26,15 @@ public class SelectionSortTests extends TestCase {
         // assert
         Assert.assertArrayEquals(new int[]{}, result);
     }
+
+    public void testSort_oneElement() throws Exception {
+        // arrange
+        int[] array = new int[] { 5 };
+
+        // act
+        int[] result = SelectionSort.sort(array);
+
+        // assert
+        Assert.assertArrayEquals(new int[]{ 5 }, result);
+    }
 }

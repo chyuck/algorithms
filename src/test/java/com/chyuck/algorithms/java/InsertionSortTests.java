@@ -16,7 +16,7 @@ public class InsertionSortTests extends TestCase {
         Assert.assertArrayEquals(new int[]{3, 3, 4, 5, 8, 11}, result);
     }
 
-    public void testSort_EmptyArray() throws Exception {
+    public void testSort_emptyArray() throws Exception {
         // arrange
         int[] array = new int[] {  };
 
@@ -25,5 +25,16 @@ public class InsertionSortTests extends TestCase {
 
         // assert
         Assert.assertArrayEquals(new int[]{}, result);
+    }
+
+    public void testSort_oneElement() throws Exception {
+        // arrange
+        int[] array = new int[] { 5 };
+
+        // act
+        int[] result = InsertionSort.sort(array);
+
+        // assert
+        Assert.assertArrayEquals(new int[]{ 5 }, result);
     }
 }
